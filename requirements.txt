@@ -1,7 +1,6 @@
 # dev requirements
 -e .
 pytest>=7.0
-unittest
 pytest-cov
 pre-commit
 black
