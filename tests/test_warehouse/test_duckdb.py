@@ -10,16 +10,15 @@ def db_manager():
     manager.credentials = Mock(access_key='test', secret_key='test')
     manager.region = 'us-east-1'
     yield manager
-    manager.close()
 
 def test_aws_configuration(db_manager):
     """test that AWS creds are correctly aligned"""
-    with db_manager.get_connection as conn:
+    with db_manager.get_connection() as conn:
         settings = conn.execute("""
             SELECT
                 current_setting('s3_region'),
                 current_setting('s3_access_key_id'),
-                current_setting('s3_access_secret_key')
+                current_setting('s3_secret_access_key')
         """).fetchone()
 
         assert settings[0] == 'us-east-1'

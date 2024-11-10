@@ -24,7 +24,7 @@ class DuckDBManager:
         conn.execute(f"""
             SET s3_region='{self.region}';
             SET s3_access_key_id='{self.credentials.access_key}';
-            SET s3_access_secret_key='{self.credentials.secret_key}';
+            SET s3_secret_access_key='{self.credentials.secret_key}';
         """)
 
     @contextmanager
