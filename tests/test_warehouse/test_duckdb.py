@@ -1,5 +1,5 @@
 # tests/test_warehouse/test_duckdb.py
-from crypto_pipeline.crypto_pipeline.warehouse.duckdb.init_db import DuckDBManager
+from crypto_pipeline.warehouse.duckdb.init_db import DuckDBManager
 from unittest.mock import Mock
 import pytest
 
