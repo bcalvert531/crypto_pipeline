@@ -1,0 +1,8 @@
+# ~/.dbt/profiles.yml - backup copy
+crypto_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "/root/crypto_pipeline/crypto_trading.db"
+      schema: main

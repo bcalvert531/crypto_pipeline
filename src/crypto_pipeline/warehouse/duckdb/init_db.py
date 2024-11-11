@@ -29,8 +29,9 @@ class DuckDBManager:
 
     def _setup_tables(self, conn):
         """setup external tables & views"""
-        # create external table if not exist
+        # create table `trades` with full reload
         try:
+            conn.execute("DROP TABLE IF EXISTS trades")
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS trades AS 
                 SELECT
@@ -49,7 +50,7 @@ class DuckDBManager:
             raise
 
     @contextmanager
-    def get_connection(self, setup_tables=False):
+    def get_connection(self, setup_tables=True):
         """
         create a duckdb connection with optional table setup
         args:

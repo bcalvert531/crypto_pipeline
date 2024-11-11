@@ -10,7 +10,9 @@ setup(
         'boto3',
         'duckdb',
         's3fs',
-        'dbt-core',
-        'dbt-duckdb'
+        'dbt-core==1.8.8',
+        'dbt-duckdb==1.9.0',
+        'protobuf>=4.21.0,<5.0'
+        'apache-airflow'
     ]
 )
