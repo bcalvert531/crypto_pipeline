@@ -26,7 +26,7 @@ def test_aws_configuration(db_manager):
         assert settings[2] == 'test'
 
 def test_connection_lifecycle(db_manager):
-    """test connection, execution"""
+    """test connection, execution, closure"""
     with db_manager.get_connection() as conn:
         result = conn.execute('SELECT 1').fetchall()
         assert result == [(1,)]

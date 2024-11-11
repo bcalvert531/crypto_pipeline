@@ -1,0 +1,35 @@
+# staging/schema.yml
+version: 2
+
+models:
+  - name: stg_trades
+    description: "Cleaned and typed trade data from raw source"
+    columns:
+      - name: id
+        description: "Unique trade identifier"
+        tests:
+          - unique
+          - not_null
+      - name: price
+        description: "Trade execution price"
+        tests:
+          - not_null
+          - positive_value
+      - name: qty
+        description: "Trade quantity"
+        tests:
+          - not_null
+          - positive_value
+      - name: traded_at
+        description: "Timestamp of trade execution"
+        tests:
+          - not_null
+      - name: tick_volume
+        description: "Volume of the trade"
+        tests:
+          - not_null
+          - positive_value
+      - name: partition_date
+        description: "Date extracted from S3 path"
+        tests:
+          - not_null

@@ -4,7 +4,7 @@ import duckdb
 from contextlib import contextmanager
 
 class DuckDBManager:
-    def __init__(self, db_path='crpyto_trading.db'):
+    def __init__(self, db_path='crypto_trading.db'):
         self.db_path = db_path
 
         # set AWS credentials
@@ -30,35 +30,42 @@ class DuckDBManager:
     def _setup_tables(self, conn):
         """setup external tables & views"""
         # create external table if not exist
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS trades AS 
-            SELECT
-                *,
-                -- extract partition info from filepath
-                cast(regexp_extract(filename, '/(\d{4})/', 1) as INTEGER) as year,
-                cast(regexp_extract(filename, '/(\d{2})/', 1) as INTEGER) as month,
-                cast(regexp_extract(filename, '/(\d{2})/[^/]+$', 1) as INTEGER) as day
-            FROM read_csv_auto(
-                's3://crypto-pipeline-dev-data/raw/trades/*/*/*/btc_usdt_trades.csv',
-                filename=true
-            );
-        """)
+        try:
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS trades AS 
+                SELECT
+                    *,
+                    -- extract partition info from filepath
+                    cast(regexp_extract(filename, '/(\d{4})/', 1) as INTEGER) as year,
+                    cast(regexp_extract(filename, '/(\d{2})/', 1) as INTEGER) as month,
+                    cast(regexp_extract(filename, '/(\d{2})/[^/]+$', 1) as INTEGER) as day
+                FROM read_csv_auto(
+                    's3://crypto-pipeline-dev-data/raw/trades/*/*/*/btc-usdt_trades.csv',
+                    filename=true
+                );
+            """)
+        except Exception as e:
+            print(f"Error setting up table trades: {str(e)}")
+            raise
 
     @contextmanager
-    def get_connection(self):
+    def get_connection(self, setup_tables=False):
         """
         create a duckdb connection with optional table setup
         args:
             setup_tables (bool): create external tables
         """
-        conn = duckdb.connect(self.db_path, setup_tables=True)
+        conn = duckdb.connect(self.db_path)
         try:
             self._setup_connection(conn)
             if setup_tables:
                 self._setup_tables(conn)
             yield conn
+        except Exception as e:
+            print(f"Error in connection: {str(e)}")
         finally:
-            conn.close()
+            if conn:
+                conn.close()
 
         
 

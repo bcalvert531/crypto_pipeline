@@ -1,0 +1,72 @@
+# mart/schema.yml
+version: 2
+
+models:
+  - name: hourly_ohlcv
+    description: "Hourly OHLCV"
+    columns:
+      - name: trading_hour
+        description: "hour of trade"
+        tests:
+          - unique
+          - not_null
+      - name: open
+        description: "opening price"
+        tests:
+          - not_null
+      - name: high
+        description: "highest price"
+        tests:
+          - not_null
+      - name: low
+        description: "lowest price"
+        tests:
+          - not_null
+      - name: close
+        description: "closing price"
+        tests:
+          - not_null
+      - name: volume
+        description: "total trading volume"
+        tests:
+          - not_null
+          - positive_value
+      - name: trade_count
+        description: "number of trades"
+        tests:
+          - not_null
+          - positive_value
+  - name: minute_ohlcv
+    description: "Minute-level OHLCV aggregation of trade data"
+    columns:
+      - name: trading_minute
+        description: "Minute of trade"
+        tests:
+          - unique
+          - not_null
+      - name: open
+        description: "Opening price for the minute"
+        tests:
+          - not_null
+      - name: high
+        description: "Highest price in minute"
+        tests:
+          - not_null
+      - name: low
+        description: "Lowest price in minute"
+        tests:
+          - not_null
+      - name: close
+        description: "Closing price for minute"
+        tests:
+          - not_null
+      - name: volume
+        description: "Total volume in minute"
+        tests:
+          - not_null
+          - positive_value
+      - name: trade_count
+        description: "Number of trades in minute"
+        tests:
+          - not_null
+          - positive_value

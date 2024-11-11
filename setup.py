@@ -9,6 +9,8 @@ setup(
     install_requires=[
         'boto3',
         'duckdb',
-        's3fs'
+        's3fs',
+        'dbt-core',
+        'dbt-duckdb'
     ]
 )

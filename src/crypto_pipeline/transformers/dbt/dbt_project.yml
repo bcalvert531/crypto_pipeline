@@ -11,7 +11,7 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 
-target_path: "target"
+target-path: "target"
 clean-targets:
   - "target"
   - "dbt_packages"
@@ -23,4 +23,4 @@ models:
     intermediate:
       +materialized: table
     mart:
-      +materialied: table
+      +materialized: table

@@ -1,0 +1,86 @@
+[0m23:41:09.055254 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbde8deb520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbde7317cd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbde73179a0>]}
+
+
+============================== 23:41:09.058005 | 93c1a301-801a-4ad2-b346-b3ff279636db ==============================
+[0m23:41:09.058005 [info ] [MainThread]: Running with dbt=1.8.8
+[0m23:41:09.058383 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': '/root/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m23:41:09.068583 [info ] [MainThread]: dbt version: 1.8.8
+[0m23:41:09.069236 [info ] [MainThread]: python version: 3.10.12
+[0m23:41:09.069583 [info ] [MainThread]: python path: /root/crypto_pipeline/venv/bin/python3
+[0m23:41:09.069881 [info ] [MainThread]: os info: Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m23:41:09.149165 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m23:41:09.149632 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m23:41:09.149973 [info ] [MainThread]: Using dbt_project.yml file at /root/crypto_pipeline/dbt_project.yml
+[0m23:41:09.151888 [info ] [MainThread]: adapter type: duckdb
+[0m23:41:09.152191 [info ] [MainThread]: adapter version: 1.9.0
+[0m23:41:09.152485 [info ] [MainThread]: Configuration:
+[0m23:41:09.152750 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m23:41:09.153030 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m23:41:09.153335 [info ] [MainThread]: Required dependencies:
+[0m23:41:09.153621 [debug] [MainThread]: Executing "git --help"
+[0m23:41:09.163077 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m23:41:09.163553 [debug] [MainThread]: STDERR: "b''"
+[0m23:41:09.163822 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m23:41:09.164112 [info ] [MainThread]: Connection:
+[0m23:41:09.164442 [info ] [MainThread]:   database: crypto_trading
+[0m23:41:09.164697 [info ] [MainThread]:   schema: main
+[0m23:41:09.164940 [info ] [MainThread]:   path: ~/crypto_pipeline/crypto_trading.db
+[0m23:41:09.165177 [info ] [MainThread]:   config_options: None
+[0m23:41:09.165428 [info ] [MainThread]:   extensions: ['httpfs', 'aws']
+[0m23:41:09.165657 [info ] [MainThread]:   settings: {}
+[0m23:41:09.165893 [info ] [MainThread]:   external_root: .
+[0m23:41:09.166210 [info ] [MainThread]:   use_credential_provider: None
+[0m23:41:09.166447 [info ] [MainThread]:   attach: None
+[0m23:41:09.166684 [info ] [MainThread]:   filesystems: None
+[0m23:41:09.166929 [info ] [MainThread]:   remote: None
+[0m23:41:09.167157 [info ] [MainThread]:   plugins: None
+[0m23:41:09.167379 [info ] [MainThread]:   disable_transactions: False
+[0m23:41:09.167748 [info ] [MainThread]: Registered adapter: duckdb=1.9.0
+[0m23:41:09.169852 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m23:41:09.191141 [debug] [MainThread]: Using duckdb connection "debug"
+[0m23:41:09.191495 [debug] [MainThread]: On debug: select 1 as id
+[0m23:41:09.191691 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:41:09.255358 [debug] [MainThread]: SQL status: OK in 0.064 seconds
+[0m23:41:09.256315 [debug] [MainThread]: On debug: Close
+[0m23:41:09.258966 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m23:41:09.259363 [info ] [MainThread]: [31m1 check failed:[0m
+[0m23:41:09.259606 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </root/crypto_pipeline/dbt_project.yml> not found
+
+[0m23:41:09.260853 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_wall_clock_time": 0.2420256, "process_user_time": 1.058743, "process_kernel_time": 0.152611, "process_mem_max_rss": "175744", "process_in_blocks": "138512", "process_out_blocks": "24", "command_success": false}
+[0m23:41:09.261277 [debug] [MainThread]: Command `dbt debug` failed at 23:41:09.261198 after 0.24 seconds
+[0m23:41:09.261528 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m23:41:09.261814 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbde8deb520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbddbb26140>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbddbb25330>]}
+[0m23:41:09.262082 [debug] [MainThread]: Flushing usage events
+[0m00:39:39.777481 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc037f134c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc0381e3760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc0381e3250>]}
+
+
+============================== 00:39:39.780418 | 0f5a84b0-bf57-4b17-babb-89b9b9902acd ==============================
+[0m00:39:39.780418 [info ] [MainThread]: Running with dbt=1.8.8
+[0m00:39:39.780882 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': '/root/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m00:39:39.781265 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /root/crypto_pipeline/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m00:39:39.782029 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.038594186, "process_user_time": 0.840382, "process_kernel_time": 0.09004, "process_mem_max_rss": "85084", "process_in_blocks": "39200", "process_out_blocks": "16", "command_success": false}
+[0m00:39:39.782394 [debug] [MainThread]: Command `dbt run` failed at 00:39:39.782323 after 0.04 seconds
+[0m00:39:39.782681 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc037f134c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc0381e23b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc0381e3760>]}
+[0m00:39:39.782960 [debug] [MainThread]: Flushing usage events
+[0m00:40:08.147006 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe02f727430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe02dc57d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe02dc57970>]}
+
+
+============================== 00:40:08.148895 | d8a0344a-fcdc-4c69-98ea-c9cb7ba6de9f ==============================
+[0m00:40:08.148895 [info ] [MainThread]: Running with dbt=1.8.8
+[0m00:40:08.149251 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m00:40:08.149583 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /root/crypto_pipeline/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m00:40:08.150113 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.03742802, "process_user_time": 0.785979, "process_kernel_time": 0.029847, "process_mem_max_rss": "85308", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m00:40:08.150517 [debug] [MainThread]: Command `dbt run` failed at 00:40:08.150414 after 0.04 seconds
+[0m00:40:08.150870 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe02f727430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe02e067cd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe02dc55d50>]}
+[0m00:40:08.151119 [debug] [MainThread]: Flushing usage events
