@@ -1,0 +1,44 @@
+# models/sources.yml
+version: 2
+
+sources:
+  - name: raw
+    database: main
+    schema: main
+    tables:
+      - name: trades
+        # define using glob patterns
+        external:
+          location: "s3://crypto-pipeline-dev-data/raw/trades/{year}/{month}/{day}/btc-usdt_trades.csv"
+          options:
+            filename_pattern: "s3://crypto-pipeline-dev-data/raw/trades/{year}/{month}/{day}/btc-usdt_trades.csv"
+            hive_partitioning: true
+        columns:
+          - name: id
+            description: "Trade ID"
+            tests:
+              - unique
+              - not_null
+          - name: price
+            description: "Trade price"
+          - name: qty
+            description: "Trade quantity"
+          - name: quoteQty
+            description: "Quote currency quantity"
+          - name: time
+            description: "Trade timestamp"
+          - name: isBuyerMaker
+            description: "Whether buyer was the maker"
+          - name: isBestMatch
+            description: "Best match flag"
+          - name: tick_volume
+            description: "Computed: Trade volume"
+          - name: tick_direction
+            description: "Computed: Trade direction (-1, 0, 1)"
+          # automatically added by hive partitioning
+          - name: year
+            description: "Year from file path"
+          - name: month
+            description: "Month from file path"
+          - name: day
+            description: "Day from file path"
