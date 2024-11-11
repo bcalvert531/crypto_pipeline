@@ -19,8 +19,8 @@ clean-targets:
 models:
   crypto_pipeline:
     staging:
+      +schema: main
       +materialized: view
-    intermediate:
-      +materialized: table
     mart:
+      +schema: mart
       +materialized: table
