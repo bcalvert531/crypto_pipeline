@@ -17,7 +17,7 @@ default_args = {
 
 def init_duckdb(**context):
     """initialize duckdb with current S3 data"""
-    db = DuckDBManager('crypto_trading.db')
+    db = DuckDBManager('crypto_trading.duckdb')
     with db.get_connection() as conn:
         # crypto_pipeline.db initialized & _setup_tables() run
         pass

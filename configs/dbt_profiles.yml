@@ -4,5 +4,5 @@ crypto_pipeline:
   outputs:
     dev:
       type: duckdb
-      path: "/root/crypto_pipeline/crypto_trading.db"
+      path: "/root/crypto_pipeline/crypto_trading.duckdb"
       schema: main

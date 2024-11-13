@@ -4,7 +4,7 @@ import duckdb
 from contextlib import contextmanager
 
 class DuckDBManager:
-    def __init__(self, db_path='crypto_trading.db'):
+    def __init__(self, db_path='crypto_trading.duckdb'):
         self.db_path = db_path
 
         # set AWS credentials
