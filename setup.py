@@ -8,7 +8,7 @@ setup(
     packages=find_packages(where="src"),  # Make sure this line is exactly like this
     install_requires=[
         'boto3',
-        'duckdb',
+        'duckdb==1.1.3',
         's3fs',
         'dbt-core==1.8.8',
         'dbt-duckdb==1.9.0',

@@ -1,0 +1,13 @@
+services:
+  grafana:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"  
+    volumes:
+      - ../../visualizers/grafana:/var/lib/grafana
+      - ../../visualizers/grafana/provisioning:/etc/grafana/provisioning
+      - ../../../../crypto_trading.duckdb:/var/lib/grafana/data/crypto_trading.duckdb

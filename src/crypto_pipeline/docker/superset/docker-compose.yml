@@ -3,11 +3,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - .env
+    user: "root"
     ports:
       - "8088:8088"
     volumes:
       - ../../visualizers/superset:/app/superset_home
       - ../../../../crypto_trading.duckdb:/app/data/crypto_trading.duckdb
-    user: "root"
-    env_file:
-      - .env
+    
+    

@@ -1,0 +1,10 @@
+apiVersion: 1
+
+datasources:
+  - name: DuckDB
+    type: grafana-sqlyze-datasource
+    uid: duckdb_datasource
+    jsonData:
+      driver: "DuckDB Driver"
+      connectionString: "Driver={DuckDB Driver};Database=/var/lib/grafana/data/crypto_trading.duckdb"
+    editable: true

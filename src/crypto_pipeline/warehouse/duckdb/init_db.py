@@ -4,23 +4,26 @@ import duckdb
 from contextlib import contextmanager
 
 class DuckDBManager:
-    def __init__(self, db_path='crypto_trading.duckdb'):
-        self.db_path = db_path
+    def __init__(self, db_path=None):
+        if db_path is None:
+            HOME = os.path.expanduser('~')
+            db_path = os.path.join(HOME, 'crypto_pipeline/crypto_trading.duckdb')
+        self.db_path = os.path.abspath(db_path)
 
-        # set AWS credentials
+        # set aws credentials
         session = boto3.Session()
         self.credentials = session.get_credentials()
         self.region = session.region_name
 
     def _setup_connection(self, conn):
         """setup duckdb connection with extensions and AWS config"""
-        # load extensions
+        # load aws extensions
         conn.execute("INSTALL httpfs;")
         conn.execute("LOAD httpfs;")
         conn.execute("INSTALL aws;")
         conn.execute("LOAD aws;")
 
-        # configure AWS
+        # configure aws
         conn.execute(f"""
             SET s3_region='{self.region}';
             SET s3_access_key_id='{self.credentials.access_key}';
@@ -56,17 +59,24 @@ class DuckDBManager:
         args:
             setup_tables (bool): create external tables
         """
-        conn = duckdb.connect(self.db_path)
+        conn = None
         try:
+            conn = duckdb.connect(self.db_path)
             self._setup_connection(conn)
             if setup_tables:
                 self._setup_tables(conn)
             yield conn
         except Exception as e:
             print(f"Error in connection: {str(e)}")
+            raise
         finally:
             if conn:
-                conn.close()
+                try:
+                    conn.commit()  
+                    conn.close()
+                except Exception as e:
+                    print(f"Error closing connection: {str(e)}")
+                    raise
 
         
 
