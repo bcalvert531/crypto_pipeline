@@ -1,0 +1,28 @@
+# configs/tokens.yml
+tokens:
+  - symbol: BTC-USDT
+    enabled: true
+    limit: 1000
+    collection_frequency: 60
+  - symbol: SOL-USDT
+    enabled: true
+    limit: 1000
+    collection_frequency: 60
+  - symbol: ETH-USDT
+    enabled: true
+    limit: 1000
+    collection_frequency: 60
+
+default_settings:
+  limit: 1000
+  collection_frequency: 60
+  backfill:
+    enabled: true
+    batchsize: 1000
+    rate_limit_decay: 1.0
+
+s3_settings:
+  bucket_name: crypto-pipeline-dev-data
+  base_path: raw/trades
+  partition_by: ['year', 'month', 'day', 'symbol']
+  

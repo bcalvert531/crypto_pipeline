@@ -1,4 +1,4 @@
-# binance/trade_collector.py
+# binance/api/trade_collector.py
 import pandas as pd 
 import boto3
 import requests
